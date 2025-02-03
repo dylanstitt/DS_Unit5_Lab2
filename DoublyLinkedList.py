@@ -25,6 +25,7 @@ class DoublyLinkedList:
                 raise TypeError('Node is not type DoublyNode or None')
             
         def set_prev(self, node):
+            """Sets prev to a new node"""
             if type(node) == type(self) or node is None:
                 self.prev = node
             else:
@@ -44,8 +45,8 @@ class DoublyLinkedList:
         for i in range(self.__size):
             out += f"{walk} "
             walk = walk.next
-            if walk is not None:
-                out += "-> "
+            if walk != None:
+                out += "<-> "
 
         out += "< TAIL"
         return out
@@ -62,13 +63,14 @@ class DoublyLinkedList:
         """Insert a node at the head of the doubly linked list"""
         node = self.DoublyNode(val)
         node.set_next(self.head)
-        self.head.set_prev(node)
+        h = self.head
 
         if self.__is_empty():
             self.head = node
             self.tail = node
         else:
             self.head = node
+            h.set_prev(node)
 
         self.__size += 1
 
@@ -79,18 +81,19 @@ class DoublyLinkedList:
         else:
             h = self.head
             self.head = self.head.next
-            self.head.set_prev(None)
             self.__size -= 1
 
             if self.__is_empty():
                 self.head = None
                 self.tail = None
+            else:
+                self.head.set_prev(None)
+
             return h.value
 
     def tail_insert(self, val):
         """Insert a node at the tail of the doubly linked list"""
         node = self.DoublyNode(val)
-        self.tail.set_next(node)
         t = self.tail
 
         if self.__is_empty():
@@ -98,6 +101,7 @@ class DoublyLinkedList:
             self.tail = node
         else:
             self.tail = node
+            t.set_next(node)
 
         self.tail.set_prev(t)
         self.__size += 1
@@ -109,10 +113,12 @@ class DoublyLinkedList:
         else:
             t = self.tail
             self.tail = self.tail.prev
-            self.tail.set_next(None)
             self.__size -= 1
 
             if self.__is_empty():
                 self.head = None
                 self.tail = None
+            else:
+                self.tail.set_next(None)
+
             return t.value

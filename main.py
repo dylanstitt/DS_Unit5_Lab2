@@ -19,36 +19,45 @@ pip install colorama
 
 def main():
 
-    testSLL = DoublyLinkedList()
+    testDLL = DoublyLinkedList()
 
-    # TEST 1 - Test SLL creation
-    # BEFORE TESTING: implement SinglyLinkedList __init__
-    TEST_new_DoublyLinkedList(testSLL)
+    # TEST 1 - Test DLL creation
+    # BEFORE TESTING: implement DoublyLinkedList __init__
+    TEST_new_dll(testDLL)
 
-    # TEST 2 - Test SinglyNode
-    # BEFORE TESTING: implement SinglyNode __init__ & set_next
-    TEST_singly_node(DoublyLinkedList)
+    # TEST 2 - Test DoublyNode
+    # BEFORE TESTING: implement DoublyNode class
+    TEST_doubly_node(DoublyLinkedList)
 
-    # TEST 3 - Test SLL head_insert
-    # BEFORE TESTING: implement SinglyLinkedList head_insert, __str__, __len__, __is_empty
-    TEST_head_insert(testSLL, DoublyLinkedList)
+    # TEST 3 - Test DLL head_insert
+    # BEFORE TESTING: implement DoublyLinkedList head_insert, __str__, __len__, __is_empty
+    TEST_head_insert(testDLL, DoublyLinkedList)
 
-    # TEST 4 - Test SLL head_remove
-    # BEFORE TESTING: implement SinglyLinkedList head_remove
-    TEST_head_remove(testSLL)
+    # TEST 4 - Test DLL head_remove
+    # BEFORE TESTING: implement DoublyLinkedList head_remove
+    TEST_head_remove(testDLL)
 
-    # TEST 4 - Test SLL tail_insert
-    # BEFORE TESTING: implement SinglyLinkedList tail_insert
-    TEST_tail_insert(testSLL, DoublyLinkedList)
+    # TEST 5 - Test DLL tail_insert
+    # BEFORE TESTING: implement DoublyLinkedList tail_insert
+    TEST_tail_insert(testDLL, DoublyLinkedList)
 
-    # TEST 5 - Test SLL head_insert & tail_insert
-    # BEFORE TESTING: implement SinglyLinkedList methods
-    TEST_head_tail_insert(testSLL, DoublyLinkedList)
+    # TEST 6 - Test DLL tail_remove
+    # BEFORE TESTING: implement DoublyLinkedList tail_remove
+    TEST_tail_remove(testDLL)
 
-    # TEST 6 - Test docstrings
+    # TEST 7 - Test DLL head_insert & tail_insert
+    # BEFORE TESTING: implement DoublyLinkedList head_insert & tail_insert
+    TEST_insert_methods(testDLL, DoublyLinkedList)
+
+    # TEST 8 - Test DLL head_remove & tail_remove
+    # BEFORE TESTING: implement DoublyLinkedList head_remove & tail_remove
+    TEST_remove_methods(testDLL)
+
+    # TEST 9 - Test docstrings
     # BEFORE TESTING: implement all methods & docstrings
-    TEST_docs(testSLL, DoublyLinkedList)
+    TEST_docs(testDLL, DoublyLinkedList)
+
 
 if __name__ == "__main__":
-    os.system("cls" if os.name == "nt" else "clear")
+    os.system("cls")
     main()
