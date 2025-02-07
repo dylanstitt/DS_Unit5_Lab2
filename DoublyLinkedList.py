@@ -63,14 +63,13 @@ class DoublyLinkedList:
         """Insert a node at the head of the doubly linked list"""
         node = self.DoublyNode(val)
         node.set_next(self.head)
-        h = self.head
 
         if self.__is_empty():
             self.head = node
             self.tail = node
         else:
+            self.head.set_prev(node)
             self.head = node
-            h.set_prev(node)
 
         self.__size += 1
 
